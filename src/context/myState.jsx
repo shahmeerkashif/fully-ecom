@@ -9,13 +9,15 @@ function MyState({ children }) {
     // Loading State 
     const [loading, setLoading] = useState(false);
 
-    // User State
+    // Product State
     const [getAllProduct, setGetAllProduct] = useState([]);
+
+    // 🟨 Dropdown Filter State
+    const [selectedTitle, setSelectedTitle] = useState("All");
 
     /**========================================================================
      *                          GET All Product Function
      *========================================================================**/
-
     const getAllProductFunction = async () => {
         setLoading(true);
         try {
@@ -38,15 +40,12 @@ function MyState({ children }) {
         }
     }
 
-
     // Order State 
     const [getAllOrder, setGetAllOrder] = useState([]);
-
 
     /**========================================================================
      *                           GET All Order Function
      *========================================================================**/
-
     const getAllOrderFunction = async () => {
         setLoading(true);
         try {
@@ -69,8 +68,7 @@ function MyState({ children }) {
         }
     }
 
-
-    // Delete oder Function
+    // Delete Order Function
     const deleteProduct = async (id) => {
         setLoading(true)
         try {
@@ -84,15 +82,12 @@ function MyState({ children }) {
         }
     }
 
-
-    // user State 
+    // User State 
     const [getAllUser, setGetAllUser] = useState([]);
-
 
     /**========================================================================
      *                           GET All User Function
      *========================================================================**/
-
     const getAllUserFunction = async () => {
         setLoading(true);
         try {
@@ -120,6 +115,7 @@ function MyState({ children }) {
         getAllOrderFunction();
         getAllUserFunction();
     }, []);
+
     return (
         <MyContext.Provider value={{
             loading,
@@ -128,11 +124,14 @@ function MyState({ children }) {
             getAllProductFunction,
             getAllOrder,
             deleteProduct,
-            getAllUser
+            getAllUser,
+            // 🟨 Exporting selected title filter state
+            selectedTitle,
+            setSelectedTitle
         }}>
             {children}
         </MyContext.Provider>
     )
 }
 
-export default MyState
+export default MyState;

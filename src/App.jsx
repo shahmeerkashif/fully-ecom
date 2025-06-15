@@ -20,6 +20,7 @@ import { ProtectedRouteForAdmin } from "./protectedRoute/ProtectedRouteForAdmin"
 import NoPage from "./pages/nopage/NoPage";
 import UpdateProductPage from "./pages/admin/UpdateProductPage";
 import CategoryPage from "./pages/category/CategoryPage";
+import OrderPlaceSuccessfull from "./pages/OrderPlaceSuccessfull";
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/category/:categoryname" element={<CategoryPage />} /> 
+          <Route path="/order-success" element={<OrderPlaceSuccessfull/>} />
           <Route path="/user-dashboard" element={
             <ProtectedRouteForUser>
               <UserDashboard />

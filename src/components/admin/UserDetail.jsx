@@ -1,9 +1,26 @@
 import { useContext } from "react";
 import myContext from "../../context/myContext";
+import { Trash2 } from 'lucide-react';
 
 const UserDetail = () => {
     const context = useContext(myContext);
-    const { getAllUser } = context;
+    const { getAllUser, deleteUser } = context;
+
+    const handleDeleteUser = async (userId) => {
+        const confirmDelete = window.confirm("Are you sure you want to delete this user? This action cannot be undone.");
+        
+        if (confirmDelete) {
+            try {
+                await deleteUser(userId);
+                // Optional: Show success message
+                alert("User deleted successfully!");
+            } catch (error) {
+                console.error("Error deleting user:", error);
+                alert("Failed to delete user. Please try again.");
+            }
+        }
+    };
+
     return (
         <div>
             <div>
@@ -47,6 +64,11 @@ const UserDetail = () => {
                                     Date
                                 </th>
 
+                                <th scope="col"
+                                    className="h-12 px-6 text-md border-l first:border-l-0 border-pink-100 text-slate-700 bg-slate-100 font-bold fontPara">
+                                    Action
+                                </th>
+
                             </tr>
                             {
                                 getAllUser.map((value, index) => {
@@ -76,6 +98,16 @@ const UserDetail = () => {
 
                                             <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 cursor-pointer ">
                                                 {value.date}
+                                            </td>
+
+                                            <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 cursor-pointer ">
+                                                <button
+                                                    onClick={() => handleDeleteUser(value.uid)}
+                                                    className="flex items-center justify-center p-2 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-lg transition-colors duration-200"
+                                                    title="Delete User"
+                                                >
+                                                    <Trash2 className="w-4 h-4" />
+                                                </button>
                                             </td>
                                         </tr>
                                     )

@@ -6,6 +6,7 @@ import Loader from "../../components/loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, deleteFromCart } from "../../redux/cartSlice";
 import toast from "react-hot-toast";
+// import { clearCart } from "../../redux/cartSlice"; // Add this at top
 
 const CategoryPage = () => {
     const { categoryname } = useParams();
@@ -73,13 +74,13 @@ const CategoryPage = () => {
                                                             />
                                                             <div className="p-6">
                                                                 <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-                                                                    E-bharat
+                                                                    TheShahmeerStore
                                                                 </h2>
                                                                 <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
                                                                     {title.substring(0, 25)}
                                                                 </h1>
                                                                 <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                                                                    ₹{price}
+                                                                    Rs: {price}
                                                                 </h1>
 
                                                                 <div
@@ -89,7 +90,7 @@ const CategoryPage = () => {
                                                                         ?
                                                                         <button
                                                                             onClick={() => deleteCart(item)}
-                                                                            className=" bg-red-700 hover:bg-pink-600 w-full text-white py-[4px] rounded-lg font-bold">
+                                                                            className=" bg-blue-gray-700 hover:bg-blue-600 w-full text-white py-[4px] rounded-lg font-bold">
                                                                             Delete From Cart
                                                                         </button>
 
@@ -97,7 +98,7 @@ const CategoryPage = () => {
 
                                                                         <button
                                                                             onClick={() => addCart(item)}
-                                                                            className=" bg-pink-500 hover:bg-pink-600 w-full text-white py-[4px] rounded-lg font-bold">
+                                                                            className=" bg-blue-gray-500 hover:bg-blue-600 w-full text-white py-[4px] rounded-lg font-bold">
                                                                             Add To Cart
                                                                         </button>
                                                                     }

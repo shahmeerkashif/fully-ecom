@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::selection {
+  background-color: black;
+  color: white;
+}
+/* Scrollbar track ka color (background) */
+::-webkit-scrollbar {
+  width: 5px; /* Scrollbar ki width */
+}
+
+/* Scrollbar ka background (track) */
+::-webkit-scrollbar-track {
+  background: transparent; /* Yahan apna background color dalein */
+}
+
+/* Scrollbar thumb ka color (jo move hota hai) */
+::-webkit-scrollbar-thumb {
+  background-color: #13367c; /* Thumb ka color */
+  border-radius: 6px;
+}

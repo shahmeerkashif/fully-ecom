@@ -1,2 +1,16 @@
+/* Scrollbar track ka color (background) */
+::-webkit-scrollbar {
+  width: 12px; /* Scrollbar ki width */
+}
 
+/* Scrollbar ka background (track) */
+::-webkit-scrollbar-track {
+  background: #00153f; /* Yahan apna background color dalein */
+}
 
+/* Scrollbar thumb ka color (jo move hota hai) */
+::-webkit-scrollbar-thumb {
+  background-color: #00153f; /* Thumb ka color */
+  border-radius: 6px;
+  border: 3px solid #000000; /* Track ke color se border */
+}
