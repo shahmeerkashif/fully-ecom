@@ -17,10 +17,10 @@ import MyState from "./context/myState";
 import { Toaster } from "react-hot-toast";
 import { ProtectedRouteForUser } from "./protectedRoute/ProtectedRouteForUser";
 import { ProtectedRouteForAdmin } from "./protectedRoute/ProtectedRouteForAdmin";
-import NoPage from "./pages/nopage/NoPage";
 import UpdateProductPage from "./pages/admin/UpdateProductPage";
 import CategoryPage from "./pages/category/CategoryPage";
 import OrderPlaceSuccessfull from "./pages/OrderPlaceSuccessfull";
+import NoPage from "./pages/nopage/NoPage";
 
 const App = () => {
   return (
@@ -29,7 +29,7 @@ const App = () => {
         <ScrollTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/*" element={<NoPage />} />
+          <Route path="*" element={<NoPage />} />
           <Route path="/productinfo/:id" element={<ProductInfo />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/allproduct" element={<AllProduct />} />
