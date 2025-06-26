@@ -20,7 +20,7 @@ import { ProtectedRouteForAdmin } from "./protectedRoute/ProtectedRouteForAdmin"
 import UpdateProductPage from "./pages/admin/UpdateProductPage";
 import CategoryPage from "./pages/category/CategoryPage";
 import OrderPlaceSuccessfull from "./pages/OrderPlaceSuccessfull";
-import NoPage from "./pages/nopage/NoPage";
+// import NoPage from "./pages/nopage/NoPage";
 
 const App = () => {
   return (
@@ -29,7 +29,7 @@ const App = () => {
         <ScrollTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="*" element={<NoPage />} />
+          <Route path="*" element={<h1>No Page Found</h1>} />
           <Route path="/productinfo/:id" element={<ProductInfo />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/allproduct" element={<AllProduct />} />
